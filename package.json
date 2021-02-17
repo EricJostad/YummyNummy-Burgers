@@ -1,0 +1,22 @@
+{
+  "name": "yummynummy-burgers",
+  "version": "1.0.0",
+  "description": "This is a burger tracking app!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricJostad/YummyNummy-Burgers.git"
+  },
+  "author": "Eric Jostad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EricJostad/YummyNummy-Burgers/issues"
+  },
+  "homepage": "https://github.com/EricJostad/YummyNummy-Burgers#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
