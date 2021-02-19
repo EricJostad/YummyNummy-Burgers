@@ -15,7 +15,7 @@
 
 ## Deployment
 * Technology used: Heroku
-* Deployed Application URL: 
+* Deployed Application URL: https://aqueous-stream-86395.herokuapp.com/
 
 
 ## Technologies
