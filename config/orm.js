@@ -4,7 +4,7 @@ const connection = require('./connection');
 // This function sets up questionmarks for MySQL query statements
 function questionMarks(num) {
     const questArr = [];
-    
+
     for (let i = 0; i < num; i++) {
         questArr.push('?');
     }
@@ -26,3 +26,47 @@ function objectSql(ob) {
     }
     return objectArr.toString();
 }
+
+// This sets up the orm variable
+const orm = {
+    selectAll: function (table, cb) {
+        const query = `SELECT * FROM ${table};`;
+        connection.query(query, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        })
+    },
+
+    insertOne: function (table, cols, vals, cb) {
+        let query= `INSERT INTO ${table}`;
+
+        query += " (";
+        query += cols.toString();
+        query += ") ";
+        query += "VALUES (";
+        query += printQuestionMarks(vals.length);
+        query += ") ";
+
+        connection.query(query, vals, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        })
+    },
+
+    updateOne: function (table, objColVals, condition, cb) {
+        let query = `UPDATE ${table}`;
+
+        query += " SET ";
+        query += objToSql(objColVals);
+        query += " WHERE ";
+        query += condition;
+
+        connection.query(query, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        })
+    }
+}
+
+// This allows the orm object to be exported
+module.exports = orm;
