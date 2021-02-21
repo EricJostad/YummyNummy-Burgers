@@ -24,7 +24,6 @@ router.post('/api/burgers', (req, res) => {
 // This creates a route for the individual burgers, based on their id
 router.put('/api/burgers/:id', (req, res) => {
     const condition = `id = ${req.params.id}`;
-
     burger.updateOne(
         {
             devoured: req.body.devoured

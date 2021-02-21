@@ -1,0 +1,76 @@
+<div class='jumbotron' style='background-color: #91CDF2;'>
+    <div class='row'>
+        <h1 style='font-weight: bold;'>Craving an American delicay? Have a burger!</h1>
+    </div>
+</div>
+
+<br>
+
+<div class='container-lg'>
+    <br>
+    <div class='container mx-auto burgersContainer'>
+        <div class='row mx-auto'>
+            <div class='col-md-4 border border-dark border-3 mx-auto ready mt-0'>
+                <h2 id='burgOfDay'>Burgers of the Day:</h2>
+                <div class='container'>
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        <li>
+                            {{burger_name}}
+                            <button type='button' class='yum-btn change-status btn btn-sm'
+                                data-id='{{id}}'>YUM!</button>
+                        </li>
+                        <br>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class='col-md-4 border border-dark border-3 mx-auto devoured mt-0'>
+                <h2 id='devoured'>Devoured Burgers:</h2>
+                <div class='container'>
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <li>
+                            {{burger_name}}
+                        </li>
+                        <br>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class='col-md-10 border border-dark border-3 new'>
+        <div class='row mx-auto' style='justify-content: center; text-align: center;'>
+            <h2 style='font-weight: bold;'>Make a New Burger!</h2>
+        </div>
+        <br>
+        <form class='newBurgerForm'>
+            <div class='form-group row mx-auto' style='justify-content: center; text-align: center;'>
+                <div class='col-sm-2'>
+                    <label for='newBurgerName' class='col-form-label'>New Burger:</label>
+                </div>
+                <div class='col-sm-6'>
+                    <input type='text' class='form-control' id='newBurgerName'
+                        placeholder="What kinda burger are you craving?">
+                </div>
+            </div>
+            <br>
+            <div class='form-group row mx-auto' style='justify-content: center; text-align: center;'>
+                <div class='col-sm-10'>
+                    <button type='submit' class='orderUp btn'>Order Up!</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+    <br>
+    <br>
+</div>
